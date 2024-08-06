@@ -27,7 +27,7 @@ const MovieDetail = () => {
   }, [id]);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/api/movies/${id}`, { method: 'DELETE' })
+    fetch(`http://localhost:5000/api/MovieDetails/${id}`, { method: 'DELETE' })
       .then(() => navigate('/'))
       .catch(error => console.error('Error deleting movie:', error));
   };
@@ -46,7 +46,7 @@ const MovieDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/movies/${id}`, {
+    fetch(`http://localhost:5000/api/MovieDetails/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

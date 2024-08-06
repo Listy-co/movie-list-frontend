@@ -1,27 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MovieCard from './MovieCard';
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/movies')
-      .then(response => response.json())
-      .then(data => setMovies(data))
-      .catch(error => console.error('Error fetching movies:', error));
+    fetchMovies();
   }, []);
 
+  const fetchMovies = async () => {
+    try {
+      const response = await fetch('/MovieDetails');
+      const data = await response.json();
+      setMovies(data);
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    }
+  };
+
   return (
-    <div className="movie-list">
-      {movies.map(movie => (
-        <Link key={movie._id} to={`/movies/${movie._id}`}>
-          <MovieCard movie={movie} />
-        </Link>
-      ))}
+    <div>
+      <h1>Movie List</h1>
+      <Link to="/AddMovie">
+        <button>Add Movie</button>
+      </Link>
+      <ul>
+        {movies.length > 0 ? (
+          movies.map(movie => (
+            <li key={movie._id}>
+              <Link to={`/MovieDetails/${movie._id}`}>{movie.title}</Link>
+            </li>
+          ))
+        ) : (
+          <p>No movies found</p>
+        )}
+      </ul>
     </div>
   );
 };
 
 export default MovieList;
+
+
 
