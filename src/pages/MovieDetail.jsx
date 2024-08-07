@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../assets/MovieDetail.css'
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -9,25 +10,25 @@ const MovieDetail = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    poster: '',
+    imageURL: '',
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/movies/${id}`)
+    fetch(`http://localhost:4000/movies/${id}`)
       .then(response => response.json())
       .then(data => {
         setMovie(data);
         setFormData({
           title: data.title,
           description: data.description,
-          poster: data.poster,
+          imageURL: data.imageURL,
         });
       })
       .catch(error => console.error('Error fetching movie:', error));
   }, [id]);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/api/MovieDetails/${id}`, { method: 'DELETE' })
+    fetch(`http://localhost:4000/movies/${id}`, { method: 'DELETE' })
       .then(() => navigate('/'))
       .catch(error => console.error('Error deleting movie:', error));
   };
@@ -46,7 +47,7 @@ const MovieDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/MovieDetails/${id}`, {
+    fetch(`http://localhost:4000/movies/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -84,11 +85,11 @@ const MovieDetail = () => {
             />
           </label>
           <label>
-            Poster URL:
+            Image URL:
             <input
               type="text"
-              name="poster"
-              value={formData.poster}
+              name="imageURL"
+              value={formData.imageURL}
               onChange={handleChange}
             />
           </label>
@@ -96,11 +97,14 @@ const MovieDetail = () => {
         </form>
       ) : (
         <div>
-          <img src={movie.poster} alt={movie.title} />
+          <img src={movie.imageURL} alt={movie.title} />
           <h2>{movie.title}</h2>
           <p>{movie.description}</p>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
+          <button className="return-button" onClick={() => navigate('/')}>
+            Return to Main Page
+          </button>
         </div>
       )}
     </div>
@@ -108,3 +112,4 @@ const MovieDetail = () => {
 };
 
 export default MovieDetail;
+
