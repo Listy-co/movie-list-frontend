@@ -2,8 +2,6 @@ Link to main application: https://github.com/Listy-co/movie-list
 
 # movie-list-frontend
 
-# Movie Application Frontend
-
 ## Description
 
 This is the frontend of the Movie Application, built using React. It allows users to add, view, edit, and delete movies. The application also includes user authentication features.
