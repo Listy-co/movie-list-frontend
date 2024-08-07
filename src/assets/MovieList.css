@@ -1,0 +1,80 @@
+
+.movie-list-container {
+  padding: 20px;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1000px; 
+  width: 90%; 
+  background-color: #ffffff;
+  color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  box-sizing: border-box;
+}
+
+.movie-list-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.movie-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-list-container .movie-item {
+  margin-bottom: 20px;
+  border: 2px solid #caa4a4;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 100%; 
+}
+
+.movie-list-container .movie-link {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-list-container .movie-poster {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-list-container .movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movie-list-container .movie-description {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.movie-list-container button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #aa6969;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.movie-list-container button:hover {
+  background-color: #b93131;
+}
+
+
+  
+  
+  
+  
