@@ -12,7 +12,7 @@ const AddMovie = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://movie-list-backend-b007.onrender.com', {
+      const response = await axios.post('https://movie-list-backend-b007.onrender.com/movies', {
         title,
         description,
         imageURL,
