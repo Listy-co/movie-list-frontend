@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../assets/EditMovie.css'; 
 
 const EditMovie = () => {
   const { id } = useParams();
@@ -62,33 +63,45 @@ const EditMovie = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="edit-movie-form" onSubmit={handleSubmit}>
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      <input
-        type="text"
-        value={movie.title}
-        onChange={e => setMovie({ ...movie, title: e.target.value })}
-        placeholder="Title"
-        required
-      />
-      <input
-        type="text"
-        value={movie.director}
-        onChange={e => setMovie({ ...movie, director: e.target.value })}
-        placeholder="Director"
-      />
-      <input
-        type="number"
-        value={movie.releaseYear}
-        onChange={e => setMovie({ ...movie, releaseYear: e.target.value })}
-        placeholder="Release Year"
-      />
-      <input
-        type="text"
-        value={movie.genres.join(', ')}
-        onChange={handleGenresChange}
-        placeholder="Genres (comma separated)"
-      />
+      <div className="form-group">
+        <label>Title</label>
+        <input
+          type="text"
+          value={movie.title}
+          onChange={e => setMovie({ ...movie, title: e.target.value })}
+          placeholder="Title"
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label> Description:</label>
+        <input
+          type="text"
+          value={movie.director}
+          onChange={e => setMovie({ ...movie, director: e.target.value })}
+          placeholder="Director"
+        />
+      </div>
+      <div className="form-group">
+        <label>Release Year</label>
+        <input
+          type="number"
+          value={movie.releaseYear}
+          onChange={e => setMovie({ ...movie, releaseYear: e.target.value })}
+          placeholder="Release Year"
+        />
+      </div>
+      <div className="form-group">
+        <label>Genres (comma separated)</label>
+        <input
+          type="text"
+          value={movie.genres.join(', ')}
+          onChange={handleGenresChange}
+          placeholder="Genres"
+        />
+      </div>
       <button type="submit" disabled={isUpdating}>
         {isUpdating ? 'Updating...' : 'Update Movie'}
       </button>
