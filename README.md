@@ -22,8 +22,3 @@ This is the frontend of the Movie Application, built using React. It allows user
 - React
 - React Router
 - CSS
-
-## Installation
-
-1. git clone https://github.com/SumayaSaidSelma/movie-app-frontend.git
-
