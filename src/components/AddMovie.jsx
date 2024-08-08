@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/AddMovie.css'; 
-
-import dotenv from 'dotenv';
-
-dotenv.config();
+const URL = import.meta.env.API_URL;
 
 const AddMovie = () => {
   const [title, setTitle] = useState('');
@@ -13,15 +10,15 @@ const AddMovie = () => {
   const [imageURL, setImageURL] = useState(''); 
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(process.env.API_URL, {
+      const response = await axios.post(URL, {
         title,
         description,
         imageURL,
       });
-
       if (response.status === 201) {
         navigate('/'); // Redirect after adding movie
       } else {
