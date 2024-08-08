@@ -13,8 +13,11 @@ const MovieDetail = () => {
     imageURL: '',
   });
 
+  const URL = import.meta.env.VITE_API_URL
+
+
   useEffect(() => {
-    fetch(`http://localhost:4000/movies/${id}`)
+    fetch((`${URL}/movies/${id}`))
       .then(response => response.json())
       .then(data => {
         setMovie(data);
@@ -28,7 +31,7 @@ const MovieDetail = () => {
   }, [id]);
 
   const handleDelete = () => {
-    fetch(`http://localhost:4000/movies/${id}`, { method: 'DELETE' })
+    fetch(`${URL}/movies/${id}`, { method: 'DELETE' })
       .then(() => navigate('/'))
       .catch(error => console.error('Error deleting movie:', error));
   };
@@ -47,7 +50,7 @@ const MovieDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4000/movies/${id}`, {
+    fetch(`${URL}/movies/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

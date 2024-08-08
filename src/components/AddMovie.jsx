@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/AddMovie.css'; 
+//const URL = import.meta.env.API_URL;
+
+const URL = `${import.meta.env.VITE_API_URL}/movies`;
 
 const AddMovie = () => {
   const [title, setTitle] = useState('');
@@ -9,15 +12,15 @@ const AddMovie = () => {
   const [imageURL, setImageURL] = useState(''); 
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://movie-list-backend-b007.onrender.com', {
+      const response = await axios.post(URL, {
         title,
         description,
         imageURL,
       });
-
       if (response.status === 201) {
         navigate('/'); // Redirect after adding movie
       } else {
