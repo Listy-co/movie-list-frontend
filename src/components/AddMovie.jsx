@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/AddMovie.css'; 
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const AddMovie = () => {
   const [title, setTitle] = useState('');
