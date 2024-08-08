@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/AddMovie.css'; 
-const URL = import.meta.env.API_URL;
+//const URL = import.meta.env.API_URL;
+
+const URL = `${import.meta.env.API_URL}/movies`;
 
 const AddMovie = () => {
   const [title, setTitle] = useState('');
