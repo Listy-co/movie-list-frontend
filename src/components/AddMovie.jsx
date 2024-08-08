@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/AddMovie.css'; 
 
+require('dotenv').config();
+
 const AddMovie = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -12,7 +14,7 @@ const AddMovie = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://movie-list-backend-b007.onrender.com/movies', {
+      const response = await axios.post(process.env.API_URL, {
         title,
         description,
         imageURL,
