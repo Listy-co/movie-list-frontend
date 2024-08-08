@@ -8,10 +8,10 @@ const MovieList = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
-
+  const URL = import.meta.env.API_URL
   const fetchMovies = async () => {
     try {
-      const response = await fetch('http://localhost:4000/movies');
+      const response = await fetch(`${URL}/movies`);
       const data = await response.json();
       setMovies(data);
     } catch (error) {
