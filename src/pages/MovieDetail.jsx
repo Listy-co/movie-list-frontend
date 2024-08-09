@@ -13,7 +13,7 @@ const MovieDetail = () => {
     imageURL: '',
   });
 
-  const URL = import.meta.env.VITE_API_URL
+  const URL = import.meta.env.VITE_API_URL;
 
 
   useEffect(() => {
