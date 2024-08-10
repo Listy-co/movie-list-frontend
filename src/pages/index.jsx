@@ -1,5 +1,6 @@
 import { useState } from "react";
 import MovieCard from "../components/MovieCard";
+import '../assets/indexmovie.css';
 
 function Index(props) {
   const [newForm, setNewForm] = useState({

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
+import '../assets/showmovie.css';
 
 const Show = (props) => {
   const params = useParams()
