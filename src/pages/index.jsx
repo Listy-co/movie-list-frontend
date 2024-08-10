@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 function Index(props) {
   const [newForm, setNewForm] = useState({
@@ -22,22 +22,16 @@ function Index(props) {
     });
   };
 
-  const loaded = () => {
-    return props.movies.map((movie) => (
-      <div key={movie._id} className="movie">
-        <Link to={`/movies/${movie._id}`}>
-          <h1>{movie.title}</h1>
-        </Link>
-        <img src={movie.imageURL} alt={movie.title} />
-        <h3>{movie.description}</h3>
-      </div>
-    ));
-  };
+  const loaded = () => (
+    <div className="movie-list">
+      {props.movies.map(movie => (
+        <MovieCard key={movie._id} movie={movie} />
+      ))}
+    </div>
+  );
 
+  const loading = () => <h1>Loading...</h1>;
 
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
   return (
     <section>
       <form onSubmit={handleSubmit}>
@@ -62,7 +56,6 @@ function Index(props) {
           placeholder="image URL"
           onChange={handleChange}
         />
-
         <input type="submit" value="Create Movie" />
       </form>
       {props.movies ? loaded() : loading()}
