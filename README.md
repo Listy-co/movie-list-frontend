@@ -13,7 +13,6 @@ This is the frontend of the Movie Application, built using React. It allows user
 - Edit movie details
 - Delete a movie
 - View movie details
-- User authentication (login and registration)
 
 ## Technologies Used
 
