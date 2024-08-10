@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <nav className='nav'>
-      <Link to="/">Home</Link>
-      <Link to="/movies">Movies</Link>
-      <Link to="/add-movie">Add Movie</Link>
-    </nav>
+      <nav className='nav'>
+          <Link to="/">
+              <div>Movie List!</div>
+          </Link>
+      </nav>
   );
 }
 
