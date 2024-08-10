@@ -25,10 +25,18 @@ const AddMovie = () => {
     })
     .then(response => response.json())
     .then(data => {
-      // Navigate to the movie list after successful addition
-      navigate('/movies');
+      navigate('/');
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Failed to add movie. Please try again.');
+    });
+
+    setNewMovie({
+      title: "",
+      description: "",
+      imageURL: "",
+    });
   };
 
   return (
