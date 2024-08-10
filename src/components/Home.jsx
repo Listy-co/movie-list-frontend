@@ -48,7 +48,7 @@ const Home = (props) => {
     };
 
     const deleteMovies = (id) => {
-        fetch(`${API_BASE_URL}/movies` + id, {
+        fetch(`${API_BASE_URL}/movies/` + id, {
             method: 'DELETE',
         })
             .then(response => response.json())
