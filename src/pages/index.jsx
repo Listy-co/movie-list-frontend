@@ -1,6 +1,5 @@
-// src/pages/index.jsx
-import React, { useState } from 'react';
-import MovieList from '../components/MovieList';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Index(props) {
   const [newForm, setNewForm] = useState({
@@ -23,10 +22,22 @@ function Index(props) {
     });
   };
 
+  const loaded = () => {
+    return props.movies.map((movie) => (
+      <div key={movie._id} className="movie">
+        <Link to={`/movies/${movie._id}`}>
+          <h1>{movie.title}</h1>
+        </Link>
+        <img src={movie.imageURL} alt={movie.title} />
+        <h3>{movie.description}</h3>
+      </div>
+    ));
+  };
+
+
   const loading = () => {
     return <h1>Loading...</h1>;
   };
-
   return (
     <section>
       <form onSubmit={handleSubmit}>
@@ -51,9 +62,10 @@ function Index(props) {
           placeholder="image URL"
           onChange={handleChange}
         />
+
         <input type="submit" value="Create Movie" />
       </form>
-      {props.movies ? <MovieList movies={props.movies} /> : loading()}
+      {props.movies ? loaded() : loading()}
     </section>
   );
 }
