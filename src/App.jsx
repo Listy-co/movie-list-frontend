@@ -1,19 +1,16 @@
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import MovieList from "./components/MovieList";
 import AddMovie from "./components/AddMovie";
+import Footer from "./components/Footer";
 
 function App() {
-
   return (
     <div className="App">
-      
       <Header />
       <Home />
-      <MovieList />
       <AddMovie />
-      
+      <Footer />
     </div>
   );
 }
