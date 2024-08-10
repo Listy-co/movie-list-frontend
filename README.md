@@ -1,8 +1,21 @@
-# React + Vite
+Link to main application: https://github.com/Listy-co/movie-list
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# movie-list-frontend
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend of the Movie Application, built using React. It allows users to add, view, edit, and delete movies. The application also includes user authentication features.
+
+## Features
+
+- View a list of movies
+- Add a new movie
+- Edit movie details
+- Delete a movie
+- View movie details
+
+## Technologies Used
+
+- React
+- React Router
+- CSS
