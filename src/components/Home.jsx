@@ -32,7 +32,7 @@ const Home = (props) => {
     };
 
     const updateMovies = (movie, id) => {
-        fetch(`${API_BASE_URL}/movies` + id, {
+        fetch(`${API_BASE_URL}/movies/` + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
