@@ -19,3 +19,5 @@ This is the frontend of the Movie Application, built using React. It allows user
 - React
 - React Router
 - CSS
+
+Working App Link: https://listycomovielist.netlify.app/
