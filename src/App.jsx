@@ -1,7 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import MovieList from "./components/MovieList";
 import Footer from "./components/Footer";
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <Home />
-      <MovieList />
       <Footer />
     </div>
   );
