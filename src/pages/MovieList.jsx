@@ -21,6 +21,7 @@ const MovieList = () => {
     }
   };
 
+
   return (
     <div className="movie-list-container">
       <h1>Movie List</h1>
