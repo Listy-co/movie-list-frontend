@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import AddMovie from "./components/AddMovie";
+import MovieList from "./components/MovieList";
 import Footer from "./components/Footer";
 
 function App() {
