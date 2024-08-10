@@ -2,21 +2,22 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 import Index from "../pages/index";
 import Show from '../pages/Show';
+import API_BASE_URL from '../config'
 
 const Home = (props) => {
     const [movies, setMovies] = useState([]);
 
-    const URL = 'http://localhost:4000/movies/';
+    // const API_BASE_URL = 'http://localhost:4000/movies/';
 
     const getMovies = () => {
-        fetch(URL)
+        fetch(`${API_BASE_URL}/movies`)
             .then(response => response.json())
             .then(data => setMovies(data.data))
             .catch(error => console.error('Error:', error));
     };
 
     const createMovies = (movie) => {
-        fetch(URL, {
+        fetch(`${API_BASE_URL}/movies`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ const Home = (props) => {
     };
 
     const updateMovies = (movie, id) => {
-        fetch(URL + id, {
+        fetch(`${API_BASE_URL}/movies` + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ const Home = (props) => {
     };
 
     const deleteMovies = (id) => {
-        fetch(URL + id, {
+        fetch(`${API_BASE_URL}/movies` + id, {
             method: 'DELETE',
         })
             .then(response => response.json())
